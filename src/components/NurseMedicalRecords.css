@@ -1,0 +1,164 @@
+.nurse-medical-records {
+  padding: 20px;
+}
+
+.nurse-medical-records .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nurse-medical-records .actions {
+  display: flex;
+  gap: 10px;
+}
+
+.nurse-medical-records .student-filter {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  min-width: 250px;
+}
+
+.nurse-medical-records .add-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nurse-medical-records .add-button:hover {
+  background-color: #45a049;
+}
+
+.nurse-medical-records .tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.nurse-medical-records .tabs button {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nurse-medical-records .tabs button:hover {
+  background-color: #ddd;
+}
+
+.nurse-medical-records .tabs button.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.nurse-medical-records .records-table-container {
+  overflow-x: auto;
+}
+
+.nurse-medical-records .records-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nurse-medical-records .records-table th,
+.nurse-medical-records .records-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.nurse-medical-records .records-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.nurse-medical-records .records-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.nurse-medical-records .records-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.nurse-medical-records .status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.nurse-medical-records .status-badge.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.nurse-medical-records .status-badge.inactive {
+  background-color: #f44336;
+  color: white;
+}
+
+.nurse-medical-records .action-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.nurse-medical-records .action-buttons button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.nurse-medical-records .view-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.nurse-medical-records .edit-btn {
+  background-color: #FFC107;
+  color: black;
+}
+
+.nurse-medical-records .status-btn {
+  background-color: #9E9E9E;
+  color: white;
+}
+
+.nurse-medical-records .archive-btn {
+  background-color: #FF9800;
+  color: white;
+}
+
+.nurse-medical-records .restore-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.nurse-medical-records .delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.nurse-medical-records .delete-btn.confirm {
+  background-color: #D32F2F;
+}
+
+.nurse-medical-records .loading,
+.nurse-medical-records .error,
+.nurse-medical-records .no-records {
+  padding: 20px;
+  text-align: center;
+}
+
+.nurse-medical-records .error {
+  color: #f44336;
+}

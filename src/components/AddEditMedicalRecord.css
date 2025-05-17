@@ -1,0 +1,282 @@
+/* ==========================================================================
+    Improved Base Styles & Variables
+    ========================================================================== */
+:root {
+     --primary-color: #2471a3;
+     --primary-light-color: #3498db;
+     --primary-lighter-color: #5dade2;
+     --primary-dark-color: #1a5276;
+     --accent-color: #3498db;
+
+     --text-color-primary: #222;
+     --text-color-secondary: var(--primary-color);
+     --text-color-error: #e74c3c;
+     --text-color-button-primary: #fff;
+     --text-color-button-secondary: var(--primary-color);
+     --text-color-button-disabled: #f4f8fb;
+
+     --bg-form: #fff;
+     --bg-input: #f7fbfd;
+     --bg-input-focus: #eaf6fb;
+     --bg-button-primary: linear-gradient(90deg, var(--accent-color) 60%, var(--primary-lighter-color) 100%);
+     --bg-button-primary-hover: linear-gradient(90deg, var(--primary-dark-color) 60%, var(--accent-color) 100%);
+     --bg-button-secondary: #f4f8fb;
+     --bg-button-secondary-hover: #eaf6fb;
+     --bg-button-disabled: #b2bec3;
+
+     --border-color-input: #b2bec3;
+     --border-color-input-focus: var(--accent-color);
+     --border-color-button-secondary: #b2bec3;
+     --border-color-light: #e1e8ed;
+
+     --border-radius-base: 12px;
+     --border-radius-input: var(--border-radius-base);
+     --border-radius-button: var(--border-radius-base);
+
+     --box-shadow-form: 0 6px 24px rgba(36, 113, 163, 0.08);
+     --box-shadow-input-focus: 0 0 0 2px rgba(52, 152, 219, 0.15);
+     --box-shadow-button-primary: 0 2px 8px rgba(52, 152, 219, 0.12);
+     --box-shadow-button-primary-hover: 0 4px 16px rgba(52, 152, 219, 0.18);
+     --box-shadow-button-secondary: 0 1px 4px rgba(0, 0, 0, 0.04);
+
+     --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+     --font-size-base: 1rem;
+     --font-size-h2: 2rem;
+     --font-size-input: 1rem;
+     --font-size-label: 1rem;
+     --font-weight-label: 600;
+     --font-weight-button: 600;
+
+     --spacing-xs: 0.25rem;
+     --spacing-sm: 0.5rem;
+     --spacing-md: 1rem;
+     --spacing-lg: 2rem;
+     --transition-duration: 0.18s;
+     --transition-timing: cubic-bezier(.4,0,.2,1);
+}
+
+/* ==========================================================================
+    Form Container
+    ========================================================================== */
+.medical-record-form {
+     max-width: 600px;
+     margin: var(--spacing-lg) auto;
+     padding: var(--spacing-lg);
+     background-color: var(--bg-form);
+     border-radius: var(--border-radius-base);
+     box-shadow: var(--box-shadow-form);
+     border: 1px solid var(--border-color-light);
+     font-family: var(--font-family-base);
+     animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+     from { opacity: 0; transform: translateY(20px); }
+     to { opacity: 1; transform: translateY(0); }
+}
+
+.medical-record-form h2 {
+     color: var(--text-color-secondary);
+     margin-bottom: var(--spacing-lg);
+     text-align: center;
+     font-size: var(--font-size-h2);
+     letter-spacing: 0.5px;
+     font-weight: 700;
+}
+
+/* ==========================================================================
+    Form Structure
+    ========================================================================== */
+.medical-record-form form {
+     display: flex;
+     flex-direction: column;
+     gap: var(--spacing-lg);
+}
+
+.form-group {
+     display: flex;
+     flex-direction: column;
+     gap: var(--spacing-xs);
+     position: relative;
+}
+
+.form-group label {
+     font-size: var(--font-size-label);
+     font-weight: var(--font-weight-label);
+     color: var(--text-color-secondary);
+     letter-spacing: 0.2px;
+     margin-bottom: var(--spacing-xs);
+}
+
+/* ==========================================================================
+    Input, Select, Textarea
+    ========================================================================== */
+.form-group input,
+.form-group select,
+.form-group textarea {
+     padding: var(--spacing-md);
+     border: 1.5px solid var(--border-color-input);
+     border-radius: var(--border-radius-input);
+     font-size: var(--font-size-input);
+     background-color: var(--bg-input);
+     transition: border-color var(--transition-duration) var(--transition-timing),
+                     box-shadow var(--transition-duration) var(--transition-timing),
+                     background-color var(--transition-duration) var(--transition-timing);
+     outline: none;
+     font-family: var(--font-family-base);
+     color: var(--text-color-primary);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+     border-color: var(--border-color-input-focus);
+     background-color: var(--bg-input-focus);
+     box-shadow: var(--box-shadow-input-focus);
+}
+
+.form-group textarea {
+     min-height: 120px;
+     resize: vertical;
+}
+
+.form-group select {
+     appearance: none;
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+     background-repeat: no-repeat;
+     background-position: right var(--spacing-md) center;
+     background-size: 1.2em;
+     padding-right: 2.5rem;
+}
+
+/* Show focus ring for accessibility */
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+     outline: 2px solid var(--accent-color);
+     outline-offset: 2px;
+}
+
+/* ==========================================================================
+    Error Messages
+    ========================================================================== */
+.error {
+     color: var(--text-color-error);
+     font-size: 0.9rem;
+     margin-top: var(--spacing-xs);
+     font-weight: 500;
+     letter-spacing: 0.1px;
+}
+
+/* ==========================================================================
+    Buttons
+    ========================================================================== */
+.button-row {
+     display: flex;
+     justify-content: flex-end;
+     gap: var(--spacing-md);
+     flex-wrap: wrap;
+     margin-top: var(--spacing-lg);
+}
+
+button {
+     padding: var(--spacing-md) var(--spacing-lg);
+     border: none;
+     border-radius: var(--border-radius-button);
+     font-size: var(--font-size-input);
+     cursor: pointer;
+     transition: background var(--transition-duration) var(--transition-timing),
+                     box-shadow var(--transition-duration) var(--transition-timing),
+                     color var(--transition-duration) var(--transition-timing),
+                     border-color var(--transition-duration) var(--transition-timing);
+     font-weight: var(--font-weight-button);
+     box-shadow: var(--box-shadow-button-secondary);
+     min-width: 120px;
+     letter-spacing: 0.2px;
+     outline: none;
+}
+
+button[type="submit"] {
+     background: var(--bg-button-primary);
+     color: var(--text-color-button-primary);
+     box-shadow: var(--box-shadow-button-primary);
+}
+
+button[type="submit"]:hover:not(:disabled),
+button[type="submit"]:focus-visible:not(:disabled) {
+     background: var(--bg-button-primary-hover);
+     box-shadow: var(--box-shadow-button-primary-hover);
+}
+
+button[type="submit"]:disabled {
+     background: var(--bg-button-disabled);
+     color: var(--text-color-button-disabled);
+     cursor: not-allowed;
+     box-shadow: none;
+     opacity: 0.7;
+}
+
+button[type="button"] {
+     background-color: var(--bg-button-secondary);
+     color: var(--text-color-button-secondary);
+     border: 1.5px solid var(--border-color-button-secondary);
+}
+
+button[type="button"]:hover:not(:disabled),
+button[type="button"]:focus-visible:not(:disabled) {
+     background-color: var(--bg-button-secondary-hover);
+     color: var(--primary-dark-color);
+     border-color: var(--accent-color);
+}
+
+/* ==========================================================================
+    Responsive Design
+    ========================================================================== */
+@media (max-width: 768px) {
+     .medical-record-form {
+          padding: var(--spacing-md);
+          margin: var(--spacing-md);
+          border-radius: calc(var(--border-radius-base) * 0.8);
+     }
+
+     .medical-record-form h2 {
+          font-size: 1.3rem;
+          margin-bottom: var(--spacing-md);
+     }
+
+     .button-row {
+          flex-direction: column;
+          gap: var(--spacing-sm);
+          align-items: stretch;
+     }
+
+     button {
+          width: 100%;
+          margin: 0;
+          padding: var(--spacing-md);
+          min-width: 0;
+     }
+}
+
+@media (max-width: 480px) {
+     .medical-record-form {
+          padding: var(--spacing-sm);
+          margin: var(--spacing-xs);
+     }
+
+     .form-group {
+          gap: var(--spacing-xs);
+     }
+
+     .form-group label {
+          font-size: 0.85rem;
+     }
+
+     .form-group input,
+     .form-group select,
+     .form-group textarea,
+     button {
+          font-size: 0.95rem;
+          padding: var(--spacing-sm);
+     }
+}

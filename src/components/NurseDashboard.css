@@ -1,0 +1,806 @@
+/* NurseDashboard.css */
+
+/* Global Settings */
+:root {
+  --primary-color: #3498db;
+  --primary-dark: #2980b9;
+  --secondary-color: #2ecc71;
+  --secondary-dark: #27ae60;
+  --danger-color: #e74c3c;
+  --danger-dark: #c0392b;
+  --light-bg: #f8f9fa;
+  --border-color: #e1e4e8;
+  --text-color: #333;
+  --text-light: #777;
+  --white: #ffffff;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+}
+
+/* Layout Components */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dashboard-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.dashboard-content {
+  display: flex;
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 0;
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+  overflow-y: auto;
+}
+
+.sidebar-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.sidebar-avatar {
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-info {
+  text-align: center;
+}
+
+.sidebar-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-info p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--text-color);
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.nav-item:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+  color: var(--primary-color);
+}
+
+.nav-item.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: var(--light-bg);
+}
+
+/* Profile Button & Dropdown */
+.profile-container {
+  position: relative;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.profile-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.username {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.dropdown-arrow {
+  font-size: 0.8rem;
+  transition: var(--transition);
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.dropdown-header {
+  display: flex;
+  padding: 1rem;
+  background-color: rgba(52, 152, 219, 0.1);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dropdown-avatar {
+  width: 48px;
+  height: 48px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+.dropdown-user-info {
+  flex: 1;
+}
+
+.dropdown-user-info h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.dropdown-user-info p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 0.15rem;
+}
+
+.dropdown-options {
+  padding: 0.5rem;
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.dropdown-option:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.option-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.logout-option {
+  color: var(--danger-color);
+}
+
+/* Dashboard Home */
+.dashboard-home {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.dashboard-home h2 {
+  margin-bottom: 1.25rem;
+  color: var(--text-color);
+  font-size: 1.35rem;
+}
+
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #e9ecef;
+}
+
+.btn-success {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: var(--secondary-dark);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: var(--white);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: var(--danger-dark);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.close-button:hover {
+  color: var(--danger-color);
+}
+
+.modal-footer {
+  padding: 1.25rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logout-confirm {
+  max-width: 400px;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.logout-confirm h3 {
+  margin-bottom: 0.75rem;
+}
+
+.logout-confirm p {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Medical Records */
+.medical-records-container {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.medical-records-container h2 {
+  margin-bottom: 1.25rem;
+  color: var(--text-color);
+  font-size: 1.35rem;
+}
+
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+.no-records-message {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text-light);
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.records-table th {
+  background-color: #f0f4f8;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.records-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+}
+
+.records-table tr:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.record-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.detail-card {
+  background-color: #f8fafc;
+  border-radius: 6px;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.detail-card h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.detail-card p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+/* Loading and Error States */
+.loading-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.loading-message,
+.error-message {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.error-message h3 {
+  color: var(--danger-color);
+  margin-bottom: 0.5rem;
+}
+
+.error-message p {
+  color: var(--text-light);
+}
+
+/* Alert Messages */
+.alert {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.alert-success {
+  background-color: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: var(--secondary-dark);
+}
+
+.alert-error {
+  background-color: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: var(--danger-dark);
+}
+
+/* Profile Container and Nurse Profile */
+.profile-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.profile-header {
+  padding: 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-right: 1.5rem;
+}
+
+.profile-title h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.profile-details {
+  padding: 2rem;
+}
+
+.detail-group {
+  margin-bottom: 2rem;
+}
+
+.detail-group h4 {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.detail-item {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.detail-label {
+  font-weight: 500;
+  min-width: 150px;
+  color: var(--text-light);
+}
+
+.detail-value {
+  flex: 1;
+  color: var(--text-color);
+}
+
+/* Profile Form */
+.profile-form {
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--primary-color);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+.form-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 2rem 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .dashboard-content {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    margin-bottom: 1.5rem;
+  }
+  
+  .sidebar-profile {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 1rem 1.5rem;
+  }
+  
+  .sidebar-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+  
+  .sidebar-info {
+    text-align: left;
+  }
+  
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+  }
+  
+  .nav-item {
+    margin-right: 0.5rem;
+  }
+  
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-avatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .detail-item {
+    flex-direction: column;
+  }
+  
+  .detail-label {
+    margin-bottom: 0.25rem;
+  }
+  
+  .record-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-header h1 {
+    font-size: 1.2rem;
+  }
+  
+  .username {
+    display: none;
+  }
+  
+  .sidebar-nav {
+    flex-direction: column;
+  }
+  
+  .modal-content {
+    width: 95%;
+  }
+  
+  .dropdown-menu {
+    width: 250px;
+  }
+}
